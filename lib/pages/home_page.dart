@@ -42,6 +42,8 @@ class _HomePageState extends State<HomePage> {
             child: Column(
               children: [
                 ListView.builder(
+                  shrinkWrap: true,
+                  physics: BouncingScrollPhysics(),
                     itemCount: movies.length,
                     itemBuilder: (BuildContext context, int index) {
                       return Container(
