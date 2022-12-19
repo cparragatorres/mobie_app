@@ -9,7 +9,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-
   List movies = [];
 
   @override
@@ -24,13 +23,9 @@ class _HomePageState extends State<HomePage> {
     http.Response response = await http.get(_uri);
     if (response.statusCode == 200) {
       // print(response.body);
-      Map<String,dynamic> myMap = json.decode(response.body);
+      Map<String, dynamic> myMap = json.decode(response.body);
       movies = myMap["results"];
-      setState(() {
-
-      });
-
-
+      setState(() {});
     }
   }
 
@@ -46,19 +41,23 @@ class _HomePageState extends State<HomePage> {
                 const EdgeInsets.symmetric(horizontal: 14.0, vertical: 12.0),
             child: Column(
               children: [
-                Container(
-                  width: double.infinity,
-                  height: height * 0.7,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(24.0),
-                    image: DecorationImage(
-                      fit: BoxFit.cover,
-                      image: NetworkImage(
-                        "https://lumiere-a.akamaihd.net/v1/images/e9fa83c7242fb46fa962150a60301d4e_2764x4096_7a402a9f.jpeg?region=0,0,2764,4096",
-                      ),
-                    ),
-                  ),
-                ),
+                ListView.builder(
+                    itemCount: movies.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      return Container(
+                        width: double.infinity,
+                        height: height*0.7,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(24.0),
+                          image: DecorationImage(
+                            fit: BoxFit.cover,
+                            image: NetworkImage(
+                              "https://lumiere-a.akamaihd.net/v1/images/e9fa83c7242fb46fa962150a60301d4e_2764x4096_7a402a9f.jpeg?region=0,0,2764,4096",
+                            ),
+                          ),
+                        ),
+                      );
+                    })
               ],
             ),
           ),
