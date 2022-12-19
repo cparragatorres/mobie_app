@@ -34,6 +34,7 @@ class _HomePageState extends State<HomePage> {
     double height = MediaQuery.of(context).size.height;
 
     return Scaffold(
+      backgroundColor: Color(0xff161823),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
@@ -47,9 +48,17 @@ class _HomePageState extends State<HomePage> {
                     itemCount: movies.length,
                     itemBuilder: (BuildContext context, int index) {
                       return Container(
+                        margin: const EdgeInsets.symmetric(vertical: 14.0, horizontal: 14.0),
                         width: double.infinity,
                         height: height*0.7,
                         decoration: BoxDecoration(
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black.withOpacity(0.3),
+                              blurRadius: 12.0,
+                              offset: const Offset(4, 4),
+                            ),
+                          ],
                           borderRadius: BorderRadius.circular(24.0),
                           image: DecorationImage(
                             fit: BoxFit.cover,
