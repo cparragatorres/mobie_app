@@ -54,7 +54,7 @@ class _HomePageState extends State<HomePage> {
                           image: DecorationImage(
                             fit: BoxFit.cover,
                             image: NetworkImage(
-                              "https://lumiere-a.akamaihd.net/v1/images/e9fa83c7242fb46fa962150a60301d4e_2764x4096_7a402a9f.jpeg?region=0,0,2764,4096",
+                              "http://image.tmdb.org/t/p/w500${movies[index]["poster_path"]}",
                             ),
                           ),
                         ),
