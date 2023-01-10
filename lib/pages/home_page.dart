@@ -139,12 +139,30 @@ class _HomePageState extends State<HomePage> {
                                                 color: Colors.white,
                                                 ),
                                               ),
-
                                             ],
                                           ),
                                         ],
                                       ),
                                     ],
+                                  ),
+                                ),
+                              ),
+                              Align(
+                                alignment: Alignment.topRight,
+                                child: Container(
+                                  padding: EdgeInsets.all(14.0),
+                                  margin: EdgeInsets.all(12.0),
+                                  decoration: BoxDecoration(
+                                    color: Colors.black.withOpacity(0.8),
+                                    shape: BoxShape.circle,
+                                  ),
+                                  child: Text(
+                                    movies[index]["vote_average"].toString(),
+                                    style: TextStyle(
+                                      fontSize: 20.0,
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold,
+                                    ),
                                   ),
                                 ),
                               ),
