@@ -107,19 +107,40 @@ class _HomePageState extends State<HomePage> {
                                         height: 6.0,
                                       ),
                                       Row(
+                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                         children: [
-                                          Icon(
-                                            Icons.date_range,
-                                            color: Colors.white,
+                                          Row(
+                                            children: [
+                                              Icon(
+                                                Icons.date_range,
+                                                color: Colors.white,
+                                              ),
+                                              SizedBox(
+                                                width: 10.0,
+                                              ),
+                                              Text(
+                                                movies[index]["release_date"],
+                                                style: TextStyle(
+                                                  color: Colors.white,
+                                                ),
+                                              ),
+                                            ],
                                           ),
-                                          SizedBox(
-                                            width: 10.0,
-                                          ),
-                                          Text(
-                                            movies[index]["release_date"],
-                                            style: TextStyle(
-                                              color: Colors.white,
-                                            ),
+                                          Row(
+                                            children: [
+                                              Icon(
+                                                Icons.thumb_up_alt,
+                                                color: Colors.white,
+                                              ),
+                                              SizedBox(width: 10.0,),
+                                              Text(
+                                                movies[index]["vote_count"].toString(),
+                                                style: TextStyle(
+                                                color: Colors.white,
+                                                ),
+                                              ),
+
+                                            ],
                                           ),
                                         ],
                                       ),
