@@ -86,7 +86,8 @@ class _HomePageState extends State<HomePage> {
                                     mainAxisSize: MainAxisSize.min,
                                     children: [
                                       Text(
-                                        "AVATAR",
+                                        movies[index]["original_title"],
+                                        maxLines: 2,
                                         style: TextStyle(
                                           color: Colors.white,
                                           fontSize: 15.0,
@@ -94,8 +95,8 @@ class _HomePageState extends State<HomePage> {
                                         ),
                                       ),
                                       Text(
-                                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-                                        maxLines: 4,
+                                        movies[index]["overview"],
+                                        maxLines: 3,
                                         overflow: TextOverflow.ellipsis,
                                         style: TextStyle(
                                           color: Colors.white,
