@@ -103,6 +103,26 @@ class _HomePageState extends State<HomePage> {
                                           fontSize: 13.0,
                                         ),
                                       ),
+                                      SizedBox(
+                                        height: 6.0,
+                                      ),
+                                      Row(
+                                        children: [
+                                          Icon(
+                                            Icons.date_range,
+                                            color: Colors.white,
+                                          ),
+                                          SizedBox(
+                                            width: 10.0,
+                                          ),
+                                          Text(
+                                            movies[index]["release_date"],
+                                            style: TextStyle(
+                                              color: Colors.white,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
                                     ],
                                   ),
                                 ),
