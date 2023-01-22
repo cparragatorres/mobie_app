@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:mobie_app/models/movie_models.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -10,7 +11,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   List movies = [];
-
+  List<MovieModel> moviesList =[];
   @override
   initState() {
     super.initState();
@@ -25,6 +26,15 @@ class _HomePageState extends State<HomePage> {
       // print(response.body);
       Map<String, dynamic> myMap = json.decode(response.body);
       movies = myMap["results"];
+
+      // movies.forEach((element) {
+      //   moviesList.add(MovieModel.fromJson(element));
+      // });
+      // print(moviesList);
+
+      moviesList = movies.map<MovieModel>((e) => MovieModel.fromJson(e)).toList();
+      // print(moviesList);
+      
       setState(() {});
     }
   }
