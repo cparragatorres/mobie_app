@@ -26,4 +26,15 @@ class APIService{
     }
     return [];
   }
+
+  getGenres()async{
+    String path ="$pathProduction/genre/movie/list?api_key=$apiKey&language=es-ES";
+    Uri _uri = Uri.parse(path);
+    http.Response response = await http.get(_uri);
+    if (response.statusCode == 200) {
+      Map<String,dynamic> myMap = json.decode(response.body);
+      List genres = myMap["genres"];
+      print(genres);
+    }  
+  }
 }

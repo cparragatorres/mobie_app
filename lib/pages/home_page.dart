@@ -31,6 +31,7 @@ class _HomePageState extends State<HomePage> {
     // });
 
     moviesList = await _apiService.getMovies();
+    _apiService.getGenres();
     setState(() {
 
     });
