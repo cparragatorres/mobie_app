@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:mobie_app/models/movie_models.dart';
+import 'package:mobie_app/services/api_services.dart';
 import 'package:mobie_app/ui/widgets/item_filter_widget.dart';
 import 'package:mobie_app/ui/widgets/item_movie_list_widget.dart';
 
@@ -13,13 +14,22 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   List movies = [];
   List<MovieModel> moviesList =[];
+  final APIService _apiService = APIService();
   @override
   initState() {
     super.initState();
     // getMovies();
+    getData();
   }
 
+  getData(){
+    _apiService.getMovies().then((value){
+      moviesList = value;
+      setState(() {
 
+      });
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
