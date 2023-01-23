@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:mobie_app/models/movie_models.dart';
+import 'package:mobie_app/ui/widgets/item_filter_widget.dart';
 import 'package:mobie_app/ui/widgets/item_movie_list_widget.dart';
 
 class HomePage extends StatefulWidget {
@@ -52,7 +53,30 @@ class _HomePageState extends State<HomePage> {
             padding:
                 const EdgeInsets.symmetric(horizontal: 14.0, vertical: 12.0),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                Text(
+                  "Discover",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 40.0,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                SizedBox(height: 10.0,),
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: [
+                      ItemFilterWidget(textFilter: "All"),
+                      ItemFilterWidget(textFilter: "All"),
+                      ItemFilterWidget(textFilter: "All"),
+                      ItemFilterWidget(textFilter: "All"),
+                      ItemFilterWidget(textFilter: "All"),
+                      ItemFilterWidget(textFilter: "All"),
+                    ],
+                  ),
+                ),
                 ListView.builder(
                   shrinkWrap: true,
                   physics: BouncingScrollPhysics(),
