@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:mobie_app/models/genre_models.dart';
 import 'package:mobie_app/models/movie_models.dart';
 import 'package:mobie_app/utils/constants.dart';
 
@@ -34,7 +35,9 @@ class APIService{
     if (response.statusCode == 200) {
       Map<String,dynamic> myMap = json.decode(response.body);
       List genres = myMap["genres"];
-      print(genres);
-    }  
+      List<GenreModel> genreModeList = genres.map((e) => GenreModel.fromJson(e)).toList();
+      return genreModeList;
+    }
+    return [];
   }
 }
