@@ -22,12 +22,17 @@ class _HomePageState extends State<HomePage> {
     getData();
   }
 
-  getData(){
-    _apiService.getMovies().then((value){
-      moviesList = value;
-      setState(() {
+  getData()async{
+    // _apiService.getMovies().then((value){
+    //   moviesList = value;
+    //   setState(() {
+    //
+    //   });
+    // });
 
-      });
+    moviesList = await _apiService.getMovies();
+    setState(() {
+
     });
   }
 
