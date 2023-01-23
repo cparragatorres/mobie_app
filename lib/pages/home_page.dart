@@ -1,6 +1,7 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:mobie_app/models/genre_models.dart';
 import 'package:mobie_app/models/movie_models.dart';
 import 'package:mobie_app/services/api_services.dart';
 import 'package:mobie_app/ui/widgets/item_filter_widget.dart';
@@ -14,6 +15,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   List movies = [];
   List<MovieModel> moviesList =[];
+  List<GenreModel> genresList =[];
   final APIService _apiService = APIService();
   @override
   initState() {
@@ -31,7 +33,7 @@ class _HomePageState extends State<HomePage> {
     // });
 
     moviesList = await _apiService.getMovies();
-    _apiService.getGenres();
+    genresList = await _apiService.getGenres();
     setState(() {
 
     });
@@ -63,14 +65,12 @@ class _HomePageState extends State<HomePage> {
                 SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   child: Row(
-                    children: [
-                      ItemFilterWidget(textFilter: "All",isSelected: true),
-                      ItemFilterWidget(textFilter: "All",isSelected: false),
-                      ItemFilterWidget(textFilter: "All",isSelected: false),
-                      ItemFilterWidget(textFilter: "All",isSelected: false),
-                      ItemFilterWidget(textFilter: "All",isSelected: false),
-                      ItemFilterWidget(textFilter: "All",isSelected: false),
-                    ],
+                    children: genresList.map(
+                        (e) => ItemFilterWidget(
+                          textFilter: e.name,
+                          isSelected: false,
+                        ),
+                    ).toList(),
                   ),
                 ),
                 ListView.builder(
