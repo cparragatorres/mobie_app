@@ -68,12 +68,12 @@ class _HomePageState extends State<HomePage> {
                   scrollDirection: Axis.horizontal,
                   child: Row(
                     children: [
-                      ItemFilterWidget(textFilter: "All"),
-                      ItemFilterWidget(textFilter: "All"),
-                      ItemFilterWidget(textFilter: "All"),
-                      ItemFilterWidget(textFilter: "All"),
-                      ItemFilterWidget(textFilter: "All"),
-                      ItemFilterWidget(textFilter: "All"),
+                      ItemFilterWidget(textFilter: "All",isSelected: true),
+                      ItemFilterWidget(textFilter: "All",isSelected: false),
+                      ItemFilterWidget(textFilter: "All",isSelected: false),
+                      ItemFilterWidget(textFilter: "All",isSelected: false),
+                      ItemFilterWidget(textFilter: "All",isSelected: false),
+                      ItemFilterWidget(textFilter: "All",isSelected: false),
                     ],
                   ),
                 ),
