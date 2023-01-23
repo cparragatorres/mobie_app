@@ -34,6 +34,8 @@ class _HomePageState extends State<HomePage> {
 
     moviesList = await _apiService.getMovies();
     genresList = await _apiService.getGenres();
+    // genresList.add(GenreModel(id: 0, name: "Todo"));
+    genresList.insert(0, GenreModel(id: 0, name: "Todo"));
     setState(() {
 
     });
